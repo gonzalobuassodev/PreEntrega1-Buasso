@@ -6,8 +6,31 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Cartwidget from './Cartwidget/Cartwidget';
 import { MenuList } from './MenuList/MenuList';
+import { Link } from 'react-router-dom';
+// const menuList = ['Inicio', 'Productos', 'Contactenos'];
 
-const menuList = ['Inicio', 'Productos', 'Contactenos'];
+const menuList = [
+  {
+    id: '1',
+    name: 'Inicio',
+    path: '/',
+  },
+  {
+    id: '2',
+    name: 'Notebook INTEL',
+    path: '/category/Notebook INTEL',
+  },
+  {
+    id: '3',
+    name: 'Notebook AMD',
+    path: '/category/Notebook AMD',
+  },
+  {
+    id: '4',
+    name: 'Contactenos',
+    path: '/',
+  },
+];
 
 function Navbar() {
   return (
@@ -24,7 +47,7 @@ function Navbar() {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' component='div'>
-            Photos
+            <Link to='/'>Laptops Córdoba</Link>
           </Typography>
           <Box
             sx={{
@@ -35,7 +58,7 @@ function Navbar() {
             }}
           >
             {menuList.map((menu) => (
-              <MenuList menu={menu} />
+              <MenuList key={menu.id} menu={menu} />
             ))}
           </Box>
 
